@@ -1,0 +1,5 @@
+{
+  "name": "AI Sticker Prompt Constructor",
+  "description": "An advanced tool for creating precise and predictable prompts for AI image generation, specifically for stickers. It features a conflict-resolution priority system to ensure coherent and effective prompts, with special emphasis on color preservation and style consistency.",
+  "requestFramePermissions": []
+}

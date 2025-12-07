@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sticker Prompt Constructor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@vercel/node": "https://aistudiocdn.com/@vercel/node@^5.5.15"
+  }
+}
+</script>
+<style>
+    /*
+      The legacy height and overflow styles have been removed.
+      This resolves a critical conflict with the app's internal viewport-based (h-screen)
+      layout, which was causing layout instability and resetting the scroll position on
+      every user interaction. The React app now has full, stable control over the layout.
+    */
+    body {
+        margin: 0; /* Basic reset */
+    }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
