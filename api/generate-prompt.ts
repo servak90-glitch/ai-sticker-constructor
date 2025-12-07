@@ -3,9 +3,9 @@
 // Its code is NOT bundled with the client, ensuring the logic is secure.
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { Settings, PromptData, StyleKey } from '../types';
-import { STYLE_LIBRARY, NEGATIVE_PROMPTS } from '../constants';
-import { translations } from '../i18n';
+import { Settings, PromptData, StyleKey } from './_lib/types';
+import { STYLE_LIBRARY, NEGATIVE_PROMPTS } from './_lib/constants';
+import { translations } from './_lib/i18n';
 
 // --- All logic from the original usePromptGenerator hook is now here ---
 

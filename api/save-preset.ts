@@ -3,7 +3,7 @@
 // Its purpose is to receive presets saved by users for analytics.
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { Preset } from '../types';
+import { Preset } from './_lib/types';
 
 export default function handler(
   req: VercelRequest,
