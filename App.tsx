@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Notification from './components/Notification';
 import CategorySidebar from './components/CategorySidebar';
 import { useTranslation } from './contexts/LanguageContext';
+import { useDebounce } from './hooks/useDebounce';
 
 const App: React.FC = () => {
     const { t } = useTranslation();
@@ -20,6 +21,8 @@ const App: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
+    const debouncedSettings = useDebounce(settings, 500);
+
     useEffect(() => {
         try {
             const storedPresets = localStorage.getItem('stickerGenPresets');
@@ -32,7 +35,7 @@ const App: React.FC = () => {
         }
     }, [t]);
 
-    // Fetch prompt data from server API whenever settings change
+    // Fetch prompt data from server API whenever debounced settings change
     useEffect(() => {
         const generatePrompt = async () => {
             setIsLoading(true);
@@ -43,7 +46,7 @@ const App: React.FC = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(settings),
+                    body: JSON.stringify(debouncedSettings),
                 });
 
                 if (!response.ok) {
@@ -61,7 +64,7 @@ const App: React.FC = () => {
         };
 
         generatePrompt();
-    }, [settings]);
+    }, [debouncedSettings]);
 
 
     const showNotification = useCallback((message: string, type: NotificationType, duration: number = 3000) => {
